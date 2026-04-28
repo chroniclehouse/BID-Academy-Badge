@@ -1,53 +1,40 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>B.I.D. Academy · Badge Admin</title>
+<title>B.I.D. Academy · Your Badge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>:root{--bg-0:#0b0a14;--ink:#f4efe6;--ink-dim:#b9b1a4;--ink-faint:#6e6a7e;--gold:#f5b700;--purple:#5b2c91;--purple-deep:#2d1454;}
-*{box-sizing:border-box;}html,body{margin:0;padding:0;overflow:hidden;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
 body{background:var(--bg-0);color:var(--ink);font-family:"Inter",-apple-system,sans-serif;min-height:100vh;}
 .bg-fx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}.grad{position:absolute;inset:0;mix-blend-mode:screen;}.grad-a{background:radial-gradient(ellipse 800px 600px at 25% 20%,rgba(91,44,145,0.55),transparent 60%);}.grad-b{background:radial-gradient(ellipse 700px 500px at 80% 70%,rgba(245,183,0,0.18),transparent 60%);}
 .grain{position:absolute;inset:0;opacity:0.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");}
-.al{display:grid;grid-template-columns:350px 1fr;height:100vh;position:relative;z-index:1;}
-.sidebar{background:linear-gradient(180deg,rgba(0,0,0,0.52),rgba(0,0,0,0.38));border-right:1px solid rgba(255,255,255,0.07);overflow-y:auto;height:100vh;}
-.si{padding:18px;display:flex;flex-direction:column;gap:14px;}
-.abrand{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.06);}
-.brand-mark{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;font-family:"Cinzel",serif;font-weight:800;font-size:13px;letter-spacing:1px;background:linear-gradient(135deg,#f5b700,#c98e00);color:#2d1454;box-shadow:inset 0 0 0 2px rgba(255,255,255,0.2),0 4px 12px rgba(245,183,0,0.2);flex-shrink:0;}
-.abn{font-family:"Cinzel",serif;font-size:15px;font-weight:700;letter-spacing:0.5px;}.abs{font-size:11px;color:var(--ink-dim);margin-top:2px;}
-.sl{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);display:flex;align-items:center;gap:6px;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,0.04);margin-bottom:2px;}
-.cnt{background:rgba(245,183,0,0.15);color:var(--gold);font-size:10px;padding:1px 7px;border-radius:999px;}
-.ib{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--ink-dim);font-family:"Inter",sans-serif;font-size:10px;font-weight:600;padding:3px 8px;border-radius:6px;cursor:pointer;letter-spacing:0.5px;}.ib:hover{color:var(--ink);}
-.ff{display:flex;flex-direction:column;gap:8px;}.fg{display:flex;flex-direction:column;gap:3px;}.frow{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.fg label{font-size:10px;color:var(--ink-dim);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;display:flex;align-items:center;gap:5px;}.opt{font-size:9px;color:var(--ink-faint);letter-spacing:0.5px;text-transform:none;font-weight:400;}
-.fg input,.fg textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;color:var(--ink);font-family:"Inter",sans-serif;font-size:13px;padding:7px 10px;outline:none;width:100%;transition:border-color 0.15s;resize:none;}
-.fg input:focus,.fg textarea:focus{border-color:rgba(245,183,0,0.4);background:rgba(255,255,255,0.07);}.fg input::placeholder,.fg textarea::placeholder{color:var(--ink-faint);}
-.tt{display:flex;gap:2px;padding:3px;background:rgba(0,0,0,0.3);border-radius:8px;}.tt button{flex:1;padding:7px 8px;border-radius:6px;border:0;background:transparent;color:var(--ink-dim);font-family:"Inter",sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.15s;}.tt button.on{background:linear-gradient(135deg,var(--gold),#c98e00);color:#2d1454;}
-.ul{font-size:10px;color:var(--ink-faint);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:3px;}
-.up{background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:7px 10px;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-dim);word-break:break-all;line-height:1.5;}
-.btn{font-family:"Inter",sans-serif;font-weight:600;font-size:12px;padding:9px 14px;border-radius:999px;border:0;cursor:pointer;letter-spacing:0.5px;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform 0.15s,background 0.2s,box-shadow 0.2s;}
+.brand-mark{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;font-family:"Cinzel",serif;font-weight:800;font-size:13px;letter-spacing:1px;background:linear-gradient(135deg,#f5b700,#c98e00);color:#2d1454;box-shadow:inset 0 0 0 2px rgba(255,255,255,0.2),0 4px 12px rgba(245,183,0,0.2);}
+.rp{position:relative;min-height:100vh;z-index:1;}.ri2{max-width:660px;margin:0 auto;padding:48px 20px 64px;display:flex;flex-direction:column;align-items:center;gap:36px;}
+.rh{text-align:center;}.rht{font-family:"Cinzel",serif;font-size:26px;font-weight:700;margin:0 0 8px;letter-spacing:2px;}.rhs{color:var(--ink-dim);font-size:13px;margin:0;letter-spacing:0.5px;}
+.mc{width:100%;background:linear-gradient(135deg,rgba(91,44,145,0.18),rgba(11,10,20,0.6));border:1px solid rgba(91,44,145,0.35);border-radius:16px;padding:22px;text-align:center;}
+.mi{font-size:18px;color:var(--gold);margin-bottom:8px;}.mt{font-family:"Cinzel",serif;font-size:15px;line-height:1.6;color:var(--ink);font-style:italic;margin:0 0 10px;}.mf{font-size:11px;color:var(--ink-dim);letter-spacing:1px;text-transform:uppercase;}
+.bs{display:flex;flex-direction:column;align-items:center;gap:10px;}.bh{font-size:12px;color:var(--ink-faint);letter-spacing:1px;margin:0;}
+.sp,.ep{width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px;}
+.vp{width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:22px;display:flex;gap:22px;align-items:flex-start;}
+.pt{font-family:"Cinzel",serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.dlr{display:grid;grid-template-columns:1fr 1fr;gap:10px;}.socr{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.sb{display:flex;flex-direction:column;gap:7px;align-items:center;padding:13px 8px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--ink);text-decoration:none;font-size:11px;font-weight:600;transition:background 0.15s;}.sb:hover{background:rgba(255,255,255,0.08);}
+.sm{width:32px;height:32px;border-radius:7px;display:grid;place-items:center;font-size:15px;font-weight:800;}.sb.li .sm{background:#0a66c2;color:#fff;font-family:Arial,sans-serif;}.sb.x .sm{background:#000;color:#fff;}.sb.fb .sm{background:#1877f2;color:#fff;font-family:Arial,sans-serif;}
+.cr{display:flex;gap:8px;align-items:center;}.cc{flex:1;background:#07050f;border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:7px 10px;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pl{color:var(--ink-dim);font-size:13px;line-height:1.55;margin:0;}.cb{background:#07050f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:11px 13px;font-family:"JetBrains Mono",monospace;font-size:11px;color:#d4cfff;line-height:1.6;word-break:break-all;white-space:pre-wrap;margin:0;}
+.vl{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px;}.vr2{display:flex;flex-direction:column;align-items:center;gap:7px;flex-shrink:0;}
+.ql,.qs{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-faint);}
+.vg{display:flex;flex-direction:column;gap:5px;}.vrow{display:flex;flex-direction:column;gap:1px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+.vl2{font-size:10px;color:var(--ink-faint);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;}.vv{font-size:13px;color:var(--ink);}.vv.mono{font-family:"JetBrains Mono",monospace;font-size:12px;}
+.btn{font-family:"Inter",sans-serif;font-weight:600;font-size:13px;padding:10px 16px;border-radius:999px;border:0;cursor:pointer;letter-spacing:0.5px;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform 0.15s,background 0.2s,box-shadow 0.2s;}
 .btn.ghost{background:rgba(255,255,255,0.06);color:var(--ink);border:1px solid rgba(255,255,255,0.1);}.btn.ghost:hover{background:rgba(255,255,255,0.1);}.btn.ghost:disabled{opacity:0.4;cursor:wait;}
 .btn.primary{background:linear-gradient(135deg,var(--gold),#c98e00);color:#2d1454;box-shadow:0 6px 16px rgba(245,183,0,0.25);}.btn.primary:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(245,183,0,0.35);}
-.btn.full{width:100%;}.url-box{display:flex;flex-direction:column;gap:3px;}
-.rl{display:flex;flex-direction:column;gap:4px;max-height:190px;overflow-y:auto;}
-.ri{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:all 0.15s;}.ri:hover{background:rgba(255,255,255,0.06);}.ri.active{background:rgba(245,183,0,0.08);border-color:rgba(245,183,0,0.3);}
-.rn{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.rm{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-faint);}
-.rd{background:transparent;border:0;color:var(--ink-faint);cursor:pointer;width:20px;height:20px;border-radius:50%;font-size:14px;display:grid;place-items:center;flex-shrink:0;}.rd:hover{background:rgba(255,80,80,0.15);color:#ff8080;}
-.re{font-size:12px;color:var(--ink-faint);text-align:center;padding:12px;line-height:1.5;}
-.pm{overflow-y:auto;height:100vh;display:flex;flex-direction:column;}.pb{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 24px;background:rgba(11,10,20,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;z-index:2;}.pc{padding:32px 24px 56px;flex:1;}
-.view-switch{display:flex;gap:2px;padding:4px;background:rgba(0,0,0,0.4);border-radius:999px;border:1px solid rgba(255,255,255,0.08);}.view-switch button{background:transparent;border:0;color:var(--ink-dim);font-family:"Inter",sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;letter-spacing:0.5px;transition:background 0.15s,color 0.15s;}.view-switch button:hover{color:var(--ink);}.view-switch button.on{background:linear-gradient(135deg,var(--gold),#c98e00);color:#2d1454;}
-.tier-swatch{width:11px;height:11px;border-radius:50%;display:inline-block;flex-shrink:0;}.tier-swatch[data-tier="graduate"]{background:linear-gradient(135deg,#fff8e7,#f5b700);box-shadow:0 0 6px var(--gold);}.tier-swatch[data-tier="member"]{background:linear-gradient(135deg,#fff,#8c92a0);}
-.duo{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:start;}.solo{display:grid;place-items:center;}
-.col{display:flex;flex-direction:column;align-items:center;padding:18px 10px;border-radius:18px;transition:background 0.3s;}.col.featured{background:radial-gradient(ellipse at top,rgba(255,255,255,0.04),transparent 70%);}
-.tier-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:2px;color:var(--ink-dim);text-transform:uppercase;}
-.tier-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0;}.tier-dot[data-tier="graduate"]{background:linear-gradient(135deg,#fff8e7,var(--gold));box-shadow:0 0 8px var(--gold);}.tier-dot[data-tier="member"]{background:linear-gradient(135deg,#fff,#8c92a0);}
-.tier-title{font-family:"Cinzel",serif;font-size:26px;font-weight:700;margin:12px 0 4px;letter-spacing:3px;}.tier-sub{color:var(--ink-dim);font-size:12px;margin:0 0 18px;}
-.badge-holder{position:relative;padding:6px;}.meta-row{display:flex;gap:6px;margin-top:18px;flex-wrap:wrap;justify-content:center;}
-.pill{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:1.5px;padding:4px 9px;border-radius:999px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--ink-dim);text-transform:uppercase;}
-.divider{display:flex;flex-direction:column;align-items:center;padding:70px 8px 0;gap:10px;min-height:320px;}.divider .line{width:1px;flex:1;background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.15),transparent);min-height:60px;}.divider .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);}
-.ab,.fb,.rb,.sb2{display:flex;flex-direction:column;gap:8px;}</style></head><body>
+.btn.big{padding:13px 18px;font-size:14px;}.rf{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:1.5px;color:var(--ink-faint);text-align:center;text-transform:uppercase;line-height:1.6;}
+@media(max-width:580px){.socr{grid-template-columns:1fr;}.dlr{grid-template-columns:1fr;}.vp{flex-direction:column;}.rht{font-size:20px;}}</style></head><body>
 <div id="root"></div>
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/qrcode@1.5.3/build/qrcode.min.js"></script>
 <script type="text/babel">
 
 const { useState, useEffect, useRef, useCallback, useMemo } = React;
@@ -132,70 +119,42 @@ window.Badge3D=Badge3D;window.TIERS=TIERS;window.BadgeFront=BadgeFront;window.Ba
 <script type="text/babel">
 
 function BackgroundFX(){return(<div className="bg-fx" aria-hidden><div className="grad grad-a"/><div className="grad grad-b"/><div className="grain"/></div>);}
-function useLS(key,init){const[v,setV]=useState(()=>{try{const s=localStorage.getItem(key);return s?JSON.parse(s):init;}catch(e){return init;}});const set=useCallback((val)=>{const n=typeof val==="function"?val(v):val;setV(n);localStorage.setItem(key,JSON.stringify(n));},[key]);return[v,set];}
-const EMPTY={tier:"graduate",name:"",email:"",date:"Class of 2026",sessions:"9 / 9",verifyId:"",track:"",award:"",message:""};
-function AdminApp(){
-  const[roster,setRoster]=useLS("bid-roster",[]);
-  const[cur,setCur]=useState({...EMPTY,verifyId:"BID-2026-0001"});
-  const[activeId,setActiveId]=useState(null);
-  const[host,setHost]=useLS("bid-host",()=>{ try{const u=new URL(window.location.href);return u.origin;}catch(e){return "https://your-site.netlify.app";}});
-  const[autoSpin,setAutoSpin]=useState(false);
-  const[view,setView]=useState("both");
-  const[copied,setCopied]=useState(false);
-  const[saved,setSaved]=useState(false);
-  const[busy,setBusy]=useState(false);
-  const set=(k,v)=>setCur(p=>({...p,[k]:v}));
-  const badgeUrl=useMemo(()=>{const p=new URLSearchParams();p.set("tier",cur.tier);p.set("name",cur.name||"Recipient");p.set("date",cur.date);p.set("sessions",cur.sessions);p.set("id",cur.verifyId||"BID-0000");if(cur.track)p.set("track",cur.track);if(cur.award)p.set("award",cur.award);if(cur.message)p.set("msg",cur.message);return`${host}/badge.html?${p}`;},[cur,host]);
-  const save=()=>{if(!cur.name.trim())return;const id=cur.verifyId||`BID-2026-${String(roster.length+1).padStart(4,"0")}`;const rec={...cur,verifyId:id};setRoster(prev=>{const i=prev.findIndex(r=>r.verifyId===id);if(i>=0){const n=[...prev];n[i]=rec;return n;}return[...prev,rec];});setActiveId(id);setSaved(true);setTimeout(()=>setSaved(false),2000);};
-  const load=(r)=>{setCur({...r});setActiveId(r.verifyId);};
-  const remove=(id,e)=>{e.stopPropagation();setRoster(p=>p.filter(r=>r.verifyId!==id));if(activeId===id){setCur({...EMPTY});setActiveId(null);}};
-  const newRec=()=>{const n=roster.length+1;setCur({...EMPTY,verifyId:`BID-2026-${String(n).padStart(4,"0")}`});setActiveId(null);};
-  const exportCSV=()=>{const hdr=["Name","Email","Tier","Date","Sessions","Verify ID","Track","Award","Badge URL"];const rows=roster.map(r=>{const p=new URLSearchParams();p.set("tier",r.tier);p.set("name",r.name||"Recipient");p.set("date",r.date);p.set("sessions",r.sessions);p.set("id",r.verifyId);if(r.track)p.set("track",r.track);if(r.award)p.set("award",r.award);if(r.message)p.set("msg",r.message);const url=`${host}/badge.html?${p}`;return[r.name,r.email||"",r.tier,r.date,r.sessions,r.verifyId,r.track||"",r.award||"",url];});const csv=[hdr,...rows].map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");const a=Object.assign(document.createElement("a"),{href:URL.createObjectURL(new Blob([csv],{type:"text/csv"})),download:"bid-academy-roster.csv"});a.click();};
-  const copyLink=()=>{navigator.clipboard?.writeText(badgeUrl);setCopied(true);setTimeout(()=>setCopied(false),2000);};
-  const dlPNG=async(face)=>{setBusy(true);try{const cont=document.createElement("div");cont.style.cssText="position:fixed;left:-9999px;top:-9999px;width:1200px;height:1200px;";document.body.appendChild(cont);const root=ReactDOM.createRoot(cont);const Comp=face==="front"?window.BadgeFrontExport:window.BadgeBackExport;await new Promise(res=>{root.render(<Comp tier={cur.tier} recipient={cur.name||"Recipient"} dateText={cur.date} sessions={cur.sessions} verifyId={cur.verifyId} track={cur.track} award={cur.award}/>);setTimeout(res,500);});const svg=cont.querySelector("svg");if(!svg)throw new Error("no svg");const xml=new XMLSerializer().serializeToString(svg);const url=URL.createObjectURL(new Blob([`<?xml version="1.0"?>`+xml],{type:"image/svg+xml"}));const img=new Image();img.crossOrigin="anonymous";await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=url;});const cv=Object.assign(document.createElement("canvas"),{width:1200,height:1200});cv.getContext("2d").drawImage(img,0,0,1200,1200);URL.revokeObjectURL(url);const a=Object.assign(document.createElement("a"),{href:cv.toDataURL("image/png"),download:`BID-${cur.tier}-${face}-${(cur.name||"badge").replace(/\s+/g,"_")}.png`});a.click();root.unmount();document.body.removeChild(cont);}catch(e){console.warn(e);alert("PNG export failed — try Chrome or Edge.");}finally{setBusy(false);}};
-  return(<div className="al"><BackgroundFX/>
-    <aside className="sidebar">
-      <div className="si">
-        <div className="abrand"><div className="brand-mark">B·I·D</div><div><div className="abn">Badge Admin</div><div className="abs">B.I.D. Academy · Tarrant County</div></div></div>
-        <div className="fb">
-          <div className="sl">Recipient Details</div>
-          <div className="ff">
-            <div className="fg"><label>Full Name</label><input value={cur.name} onChange={e=>set("name",e.target.value)} placeholder="e.g. Alex Morgan"/></div>
-            <div className="fg"><label>Email <span className="opt">admin only</span></label><input type="email" value={cur.email} onChange={e=>set("email",e.target.value)} placeholder="email@example.com"/></div>
-            <div className="fg"><label>Badge Tier</label><div className="tt"><button className={cur.tier==="graduate"?"on":""} onClick={()=>set("tier","graduate")}>★ Graduate</button><button className={cur.tier==="member"?"on":""} onClick={()=>set("tier","member")}>○ Cohort Member</button></div></div>
-            <div className="frow"><div className="fg"><label>Class / Date</label><input value={cur.date} onChange={e=>set("date",e.target.value)} placeholder="Class of 2026"/></div><div className="fg"><label>Sessions</label><input value={cur.sessions} onChange={e=>set("sessions",e.target.value)} placeholder="9 / 9"/></div></div>
-            <div className="fg"><label>Verify ID <span className="opt">legitimacy</span></label><input value={cur.verifyId} onChange={e=>set("verifyId",e.target.value)} placeholder="BID-2026-0001"/></div>
-            <div className="fg"><label>Track / Specialization <span className="opt">optional</span></label><input value={cur.track} onChange={e=>set("track",e.target.value)} placeholder="e.g. Business Planning Track"/></div>
-            <div className="fg"><label>Award Distinction <span className="opt">optional</span></label><input value={cur.award} onChange={e=>set("award",e.target.value)} placeholder="e.g. With Honors, Top Performer"/></div>
-            <div className="fg"><label>Personal Message <span className="opt">recipient sees this</span></label><textarea rows={3} value={cur.message} onChange={e=>set("message",e.target.value)} placeholder="A congratulatory note visible on the recipient's badge page..."/></div>
-          </div>
-        </div>
-        <div className="ab">
-          <button className="btn primary full" onClick={save}>{saved?"✓ Saved to Roster":"Save to Roster"}</button>
-          <div className="url-box"><div className="ul">Badge Link</div><div className="up">{badgeUrl}</div></div>
-          <div className="frow"><button className="btn ghost" style={{flex:1}} onClick={copyLink}>{copied?"✓ Copied":"⎘ Copy Link"}</button><button className="btn ghost" style={{flex:1}} onClick={()=>window.open(badgeUrl,"_blank")}>↗ Open</button></div>
-          <div className="frow"><button className="btn ghost" style={{flex:1}} disabled={busy} onClick={()=>dlPNG("front")}>{busy?"…":"↓ Front PNG"}</button><button className="btn ghost" style={{flex:1}} disabled={busy} onClick={()=>dlPNG("back")}>{busy?"…":"↓ Back PNG"}</button></div>
-        </div>
-        <div className="rb">
-          <div className="sl">Roster{roster.length>0&&<span className="cnt">{roster.length}</span>}<button className="ib" onClick={newRec}>+ New</button>{roster.length>0&&<button className="ib" onClick={exportCSV}>↓ CSV</button>}</div>
-          <div className="rl">{roster.length===0&&<div className="re">Save a recipient to see them here.</div>}{roster.map(r=>(<div key={r.verifyId} className={`ri${activeId===r.verifyId?" active":""}`} onClick={()=>load(r)}><div style={{flex:1,minWidth:0}}><div className="rn">{r.name}</div><div className="rm">{r.tier==="graduate"?"★ Graduate":"○ Member"} · {r.verifyId}</div></div><button className="rd" onClick={e=>remove(r.verifyId,e)}>×</button></div>))}</div>
-        </div>
-        <div className="sb2"><div className="sl">Settings</div><div className="fg"><label>Your Netlify URL</label><input value={host} onChange={e=>setHost(e.target.value)} placeholder="https://your-site.netlify.app"/></div></div>
+function RecipientApp(){
+  const p=new URLSearchParams(location.search);
+  const tier=p.get("tier")==="member"?"member":"graduate",name=p.get("name")||"Recipient",date=p.get("date")||"Class of 2026",sessions=p.get("sessions")||"9 / 9",verifyId=p.get("id")||"BID-2026-0001",track=p.get("track")||"",award=p.get("award")||"",message=p.get("msg")||"";
+  const[linkCopied,setLinkCopied]=useState(false),[embedCopied,setEmbedCopied]=useState(false),[busy,setBusy]=useState(false);
+  const thisUrl=window.location.href;
+  const year=(date.match(/\d{4}/)||[new Date().getFullYear()])[0];
+  const linkedinUrl=useMemo(()=>{const lp=new URLSearchParams({startTask:"CERTIFICATION_NAME",name:`B.I.D. Academy ${tier==="graduate"?"Graduate":"Cohort Member"}`,organizationId:"",issueYear:year,certUrl:thisUrl,certId:verifyId});return`https://www.linkedin.com/profile/add?${lp}`;},[tier,year,thisUrl,verifyId]);
+  const baseParams=new URLSearchParams({tier,name,date,sessions,id:verifyId,...(track?{track}:{}),...(award?{award}:{})}).toString();
+  const embedCode=`<iframe src="${location.origin+location.pathname}?${baseParams}" width="480" height="520" style="border:0;background:transparent" loading="lazy" title="B.I.D. Academy Badge"></iframe>`;
+  const copy=(text,setter)=>{navigator.clipboard?.writeText(text);setter(true);setTimeout(()=>setter(false),2000);};
+  const dlFace=async(face)=>{setBusy(true);try{const cont=document.createElement("div");cont.style.cssText="position:fixed;left:-9999px;top:-9999px;width:1200px;height:1200px;";document.body.appendChild(cont);const root=ReactDOM.createRoot(cont);const Comp=face==="front"?window.BadgeFrontExport:window.BadgeBackExport;await new Promise(res=>{root.render(<Comp tier={tier} recipient={name} dateText={date} sessions={sessions} verifyId={verifyId} track={track} award={award}/>);setTimeout(res,500);});const svg=cont.querySelector("svg");if(!svg)throw new Error();const xml=new XMLSerializer().serializeToString(svg);const url=URL.createObjectURL(new Blob([`<?xml version="1.0"?>`+xml],{type:"image/svg+xml"}));const img=new Image();img.crossOrigin="anonymous";await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=url;});const cv=Object.assign(document.createElement("canvas"),{width:1200,height:1200});cv.getContext("2d").drawImage(img,0,0,1200,1200);URL.revokeObjectURL(url);Object.assign(document.createElement("a"),{href:cv.toDataURL("image/png"),download:`BID-Academy-${tier}-${face}-${name.replace(/\s+/g,"_")}.png`}).click();root.unmount();document.body.removeChild(cont);}catch(e){console.warn(e);alert("PNG export failed — try Chrome or Edge.");}finally{setBusy(false);}};
+  useEffect(()=>{if(typeof QRCode==="undefined")return;const el=document.getElementById("qr-cv");if(!el)return;QRCode.toCanvas(el,thisUrl,{width:148,margin:1,color:{dark:"#f5b700",light:"#0d0b1d"}}).catch(console.warn);},[thisUrl]);
+  return(<div className="rp"><BackgroundFX/><div className="ri2">
+    <header className="rh"><div className="brand-mark" style={{margin:"0 auto 14px"}}>B·I·D</div><h1 className="rht">Your B.I.D. Academy Badge</h1><p className="rhs">{tier==="graduate"?"B.I.D. Academy Graduate":"B.I.D. Academy Cohort Member"} · Tarrant County · Inaugural Cohort</p></header>
+    {message&&(<div className="mc"><div className="mi">✦</div><blockquote className="mt">"{message}"</blockquote><div className="mf">Prairie View A&M Extension · Community &amp; Economic Development</div></div>)}
+    <div className="bs"><Badge3D tier={tier} recipient={name} dateText={date} sessions={sessions} verifyId={verifyId} track={track} award={award} autoSpin={false} displaySize={500}/><p className="bh">Click to flip · Move cursor to tilt</p></div>
+    <div className="sp">
+      <div className="pt">Share Your Achievement</div>
+      <div className="dlr"><button className="btn primary big" disabled={busy} onClick={()=>dlFace("front")}>{busy?"Rendering…":"↓ Download Front"}</button><button className="btn ghost big" disabled={busy} onClick={()=>dlFace("back")}>{busy?"Rendering…":"↓ Download Back"}</button></div>
+      <div className="socr">
+        <a className="sb li" href={linkedinUrl} target="_blank" rel="noopener"><span className="sm">in</span><span>Add to LinkedIn</span></a>
+        <a className="sb x" href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(thisUrl)}&text=${encodeURIComponent("I earned my B.I.D. Academy badge! "+(tier==="graduate"?"★ Graduate — Completed all 9 sessions":"○ Inaugural Cohort Member")+" · Tarrant County, TX")}`} target="_blank" rel="noopener"><span className="sm">𝕏</span><span>Post on X</span></a>
+        <a className="sb fb" href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(thisUrl)}`} target="_blank" rel="noopener"><span className="sm">f</span><span>Share on Facebook</span></a>
       </div>
-    </aside>
-    <main className="pm">
-      <div className="pb"><span style={{fontFamily:"Cinzel,serif",fontWeight:700,fontSize:13,letterSpacing:1}}>Live Preview</span>
-        <div style={{display:"flex",gap:8,alignItems:"center"}}>
-          <div className="view-switch"><button className={view==="both"?"on":""} onClick={()=>setView("both")}>◉○ Both</button><button className={view==="graduate"?"on":""} onClick={()=>setView("graduate")}><span className="tier-swatch" data-tier="graduate"/>Graduate</button><button className={view==="member"?"on":""} onClick={()=>setView("member")}><span className="tier-swatch" data-tier="member"/>Member</button></div>
-          <button className="btn ghost" style={{padding:"7px 13px",fontSize:12}} onClick={()=>setAutoSpin(s=>!s)}>{autoSpin?"■ Stop":"↻ Spin"}</button>
-        </div>
-      </div>
-      <div className="pc">{view==="both"?(<div className="duo"><PreviewCol tier="graduate" cur={cur} autoSpin={autoSpin}/><div className="divider"><div className="line"/><div className="dot"/><div className="line"/></div><PreviewCol tier="member" cur={cur} autoSpin={autoSpin}/></div>):(<div className="solo"><PreviewCol tier={view} cur={cur} autoSpin={autoSpin} big/></div>)}</div>
-    </main>
-  </div>);
+      <div className="cr"><div className="cc">{thisUrl}</div><button className="btn ghost" onClick={()=>copy(thisUrl,setLinkCopied)}>{linkCopied?"✓ Copied":"Copy Link"}</button></div>
+    </div>
+    <div className="ep"><div className="pt">Add to Your Website</div><p className="pl">Drop the live interactive badge into any site, portfolio, or Linktree.</p><pre className="cb">{embedCode}</pre><button className="btn primary" onClick={()=>copy(embedCode,setEmbedCopied)}>{embedCopied?"✓ Copied":"Copy Embed Code"}</button></div>
+    <div className="vp">
+      <div className="vl"><div className="pt">Verified Badge</div><div className="vg"><VR l="Recipient" v={name}/><VR l="Tier" v={tier==="graduate"?"Graduate":"Cohort Member"}/><VR l="Issuer" v="Prairie View A&M Extension"/><VR l="Program" v="Tarrant County B.I.D. Academy"/><VR l="Cohort" v="Inaugural · 01"/><VR l="Date" v={date}/>{sessions&&<VR l="Sessions" v={sessions}/>}{track&&<VR l="Track" v={track}/>}{award&&<VR l="Distinction" v={award}/>}<VR l="Verify ID" v={verifyId} mono/></div></div>
+      <div className="vr2"><div className="ql">Scan to share</div><canvas id="qr-cv" style={{borderRadius:10}}/><div className="qs">Opens this badge page</div></div>
+    </div>
+    <footer className="rf">Prairie View A&M Extension · Community &amp; Economic Development · Inaugural Tarrant County B.I.D. Academy · 2026</footer>
+  </div></div>);
 }
-function PreviewCol({tier,cur,autoSpin,big}){return(<div className={`col featured${big?" big":""}`}><div className="tier-eyebrow"><span className="tier-dot" data-tier={tier}/><span>{tier==="graduate"?"Tier I · Graduate":"Tier II · Member"}</span></div><h2 className="tier-title">{tier==="graduate"?"GRADUATE":"COHORT MEMBER"}</h2><p className="tier-sub">{tier==="graduate"?"Completed all 9 sessions":"Inaugural cohort participant"}</p><div className="badge-holder"><Badge3D tier={tier} recipient={cur.name||"Recipient Name"} dateText={cur.date} sessions={cur.sessions} verifyId={cur.verifyId||"BID-0000"} track={cur.track} award={cur.award} autoSpin={autoSpin} displaySize={big?560:400}/></div><div className="meta-row"><span className="pill">1200×1200</span><span className="pill">300 DPI</span><span className="pill">{tier==="graduate"?"Platinum + Gold":"Brushed Silver"}</span></div></div>);}
-ReactDOM.createRoot(document.getElementById("root")).render(<AdminApp/>);
+function VR({l,v,mono}){return(<div className="vrow"><span className="vl2">{l}</span><span className={`vv${mono?" mono":""}`}>{v}</span></div>);}
+ReactDOM.createRoot(document.getElementById("root")).render(<RecipientApp/>);
 
 </script>
 </body></html>
