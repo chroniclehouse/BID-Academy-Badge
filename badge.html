@@ -125,7 +125,7 @@ function RecipientApp(){
   const[linkCopied,setLinkCopied]=useState(false),[embedCopied,setEmbedCopied]=useState(false),[busy,setBusy]=useState(false),[spinning,setSpinning]=useState(false);
   const thisUrl=window.location.href;
   const year=(date.match(/\d{4}/)||[new Date().getFullYear()])[0];
-  const linkedinUrl=useMemo(()=>{const lp=new URLSearchParams({startTask:"CERTIFICATION_NAME",name:"Business In Development Academy",organizationId:"",issueYear:year,certUrl:thisUrl,certId:verifyId});return`https://www.linkedin.com/profile/add?${lp}`;},[tier,year,thisUrl,verifyId]);
+  const linkedinUrl=useMemo(()=>{const lp=new URLSearchParams({startTask:"CERTIFICATION_NAME",name:"Business In Development Academy",organizationName:"Prairie View A%26M University Extension",issueYear:year,certUrl:thisUrl,certId:verifyId});return`https://www.linkedin.com/profile/add?${lp}`;},[tier,year,thisUrl,verifyId]);
   const baseParams=new URLSearchParams({tier,name,date,sessions,id:verifyId,...(track?{track}:{}),...(award?{award}:{})}).toString();
   const embedCode=`<iframe src="${location.origin+location.pathname}?${baseParams}" width="480" height="520" style="border:0;background:transparent" loading="lazy" title="B.I.D. Academy Badge"></iframe>`;
   const copy=(text,setter)=>{navigator.clipboard?.writeText(text);setter(true);setTimeout(()=>setter(false),2000);};
