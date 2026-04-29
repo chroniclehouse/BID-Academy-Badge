@@ -135,8 +135,8 @@ function BackgroundFX(){return(<div className="bg-fx" aria-hidden><div className
 function useLS(key,init){const[v,setV]=useState(()=>{try{const s=localStorage.getItem(key);return s?JSON.parse(s):init;}catch(e){return init;}});const set=useCallback((val)=>{setV(prev=>{const n=typeof val==="function"?val(prev):val;try{localStorage.setItem(key,JSON.stringify(n));}catch(e){}return n;});},[key]);return[v,set];}
 const EMPTY={tier:"graduate",name:"",email:"",date:"Class of 2026",sessions:"9 / 9",verifyId:"",track:"",award:"",message:""};
 function AdminApp(){
-  const[cohorts,setCohorts]=useLS("bid-cohorts",[{id:"cohort-1",label:"2026 Cohort"}]);
-  const[activeCohortId,setActiveCohortId]=useLS("bid-active-cohort","cohort-1");
+  const[cohorts,setCohorts]=useLS("bid-cohorts",[]);
+  const[activeCohortId,setActiveCohortId]=useLS("bid-active-cohort","_general");
   const[allRosters,setAllRosters]=useLS("bid-rosters",{});
   const[cur,setCur]=useState({...EMPTY});
   const[activeId,setActiveId]=useState(null);
@@ -159,7 +159,7 @@ function AdminApp(){
   const setRoster=updater=>setAllRosters(prev=>{const cur=prev[activeCohortId]||[];const next=typeof updater==="function"?updater(cur):updater;return{...prev,[activeCohortId]:next};});
   const switchCohort=id=>{setActiveCohortId(id);setCur({...EMPTY});setActiveId(null);};
   const addCohort=()=>{if(!newCohortName.trim())return;const id=`cohort-${Date.now()}`;setCohorts(p=>[...p,{id,label:newCohortName.trim()}]);setActiveCohortId(id);setCur({...EMPTY});setActiveId(null);setNewCohortName("");setAddingCohort(false);};
-  const deleteCohort=id=>{if(cohorts.length<=1)return;const next=cohorts.filter(c=>c.id!==id);setCohorts(next);if(activeCohortId===id){const fallback=next[0].id;setActiveCohortId(fallback);setCur({...EMPTY});setActiveId(null);}setAllRosters(p=>{const n={...p};delete n[id];return n;});};
+  const deleteCohort=id=>{const next=cohorts.filter(c=>c.id!==id);setCohorts(next);if(activeCohortId===id){setActiveCohortId("_general");setCur({...EMPTY});setActiveId(null);}setAllRosters(p=>{const n={...p};delete n[id];return n;});};
   const set=(k,v)=>setCur(p=>({...p,[k]:v}));
   const mkUrl=(tier)=>{const p=new URLSearchParams();p.set("tier",tier);p.set("name",cur.name||"Recipient");p.set("date",cur.date);p.set("sessions",cur.sessions);p.set("id",cur.verifyId||"BID-0000");if(cur.track)p.set("track",cur.track);if(cur.award)p.set("award",cur.award);if(cur.message)p.set("msg",cur.message);return`${host}/badge.html?${p}`;};
   const gradUrl=mkUrl("graduate"),memberUrl=mkUrl("member"),badgeUrl=mkUrl(cur.tier);
@@ -181,10 +181,13 @@ function AdminApp(){
           <button className="chip-add" style={{opacity:1}} onClick={()=>{setAddingCohort(s=>!s);setNewCohortName("");}}>+ New</button>
         </div>
         <div className="cohort-pills">
+          <span className={`cp${activeCohortId==="_general"?" on":""}`}>
+            <button className="cp-name" onClick={()=>switchCohort("_general")}>No Group</button>
+          </span>
           {cohorts.map(c=>(
             <span key={c.id} className={`cp${activeCohortId===c.id?" on":""}`}>
               <button className="cp-name" onClick={()=>switchCohort(c.id)}>{c.label}</button>
-              {cohorts.length>1&&<button className="cp-del" onClick={()=>deleteCohort(c.id)}>×</button>}
+              <button className="cp-del" onClick={()=>deleteCohort(c.id)}>×</button>
             </span>
           ))}
         </div>
