@@ -194,6 +194,7 @@ function BackgroundFX(){
 }
 
 function DemoApp(){
+  const[spinning,setSpinning]=useState(true);
   return(
     <div className="page">
       <BackgroundFX/>
@@ -218,6 +219,15 @@ function DemoApp(){
 
       {/* Badge Showcase */}
       <section className="showcase">
+        <div style={{width:"100%",display:"flex",justifyContent:"center",marginBottom:8}}>
+          <button
+            onClick={()=>setSpinning(s=>!s)}
+            style={{background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.12)",borderRadius:999,padding:"6px 18px",color:"var(--ink-dim)",fontSize:11,fontWeight:600,letterSpacing:"1.5px",textTransform:"uppercase",cursor:"pointer",display:"flex",alignItems:"center",gap:7,transition:"background 0.15s"}}
+          >
+            <span style={{width:8,height:8,borderRadius:"50%",background:spinning?"var(--gold)":"var(--ink-faint)",boxShadow:spinning?"0 0 8px rgba(245,183,0,0.7)":"none",transition:"background 0.2s,box-shadow 0.2s"}}/>
+            {spinning?"Spinning":"Paused"}
+          </button>
+        </div>
         <div className="badge-card">
           <div className="badge-label">Graduate Badge</div>
           <Badge3D
@@ -228,6 +238,7 @@ function DemoApp(){
             verifyId="BID-2026-DEMO"
             track="Business Development"
             award=""
+            autoSpin={spinning}
           />
           <div className="badge-desc">Awarded to participants who completed<br/>all sessions of the B.I.D. Academy program.</div>
         </div>
@@ -241,6 +252,7 @@ function DemoApp(){
             verifyId="BID-2026-DEMO"
             track="Business Development"
             award=""
+            autoSpin={spinning}
           />
           <div className="badge-desc">Awarded to enrolled participants who engaged<br/>with the B.I.D. Academy curriculum.</div>
         </div>
